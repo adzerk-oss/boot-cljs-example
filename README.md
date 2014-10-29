@@ -5,7 +5,7 @@ Example project using [the boot build tool][boot] with the [boot-cljs],
 
 ## Prepare
 
-Download the [boot] binary for your system. Then, in a terminal:
+Download the boot binary for your system. Then, in a terminal:
 
 ```bash
 boot -u
