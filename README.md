@@ -30,11 +30,11 @@ This builds a pipeline for your project:
 * **`speak`** Audible notification (plays a sound file) for each build iteration,
   notifying of errors or warnings when appropriate.
 
-* **`cljs-repl`** Task to handle starting a CLJS REPL and auto-connecting to the
-  browser client.
+* **`cljs-repl`** Starts a CLJ REPL and websocket server. The browser client will
+  connect to it when the CLJS REPL is started (see below).
 
-* **`cljs`** Compiles `.cljs` files to JavaScript.
-  * **`-u`** Adds `<script>` tags to `.html` files when optimizations is `none`.
+* **`cljs`** Compiles ClojureScript namespaces to JavaScript.
+  * **`-u`** Add `<script>` tags to HTML files when optimizations is `none`.
   * **`-s`** Create source maps for compiled JavaScript files.
   * **`-O none`** Use optimizations `none` (no [GClosure][gclosure] compiler pass).
 
