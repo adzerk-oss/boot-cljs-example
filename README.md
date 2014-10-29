@@ -44,8 +44,14 @@ This builds a pipeline for your project:
 
 ## Start Browser REPL
 
-With the build pipeline humming in the background, connect to the running REPL
-server and do:
+With the build pipeline humming in the background, you can connect to the running nREPL
+server with either your IDE or at the command line in a new terminal:
+
+```bash
+boot repl --client
+```
+
+Then, you can start a CLJS REPL:
 
 ```clojure
 boot.user=> (start-repl)
