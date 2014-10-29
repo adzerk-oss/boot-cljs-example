@@ -5,7 +5,7 @@ Example project using [the boot build tool][boot] with the [boot-cljs],
 
 ## Prepare
 
-Download the boot binary for your system. Then, in a terminal:
+[Install boot][installboot].  Then, in a terminal:
 
 ```bash
 boot -u
@@ -71,4 +71,5 @@ your option) any later version.
 [boot-cljs]:        https://github.com/adzerk/boot-cljs
 [boot-cljs-repl]:   https://github.com/adzerk/boot-cljs-repl
 [boot-reload]:      https://github.com/adzerk/boot-reload
+[installboot]:      https://github.com/boot-clj/boot#install
 [gclosure]:         https://developers.google.com/closure/compiler/
