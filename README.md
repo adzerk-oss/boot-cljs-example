@@ -47,7 +47,7 @@ This builds a pipeline for your project:
 With the build pipeline humming in the background, connect to the running REPL
 server and do:
 
-```clj
+```clojure
 boot.user=> (start-repl)
 ```
 
