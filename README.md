@@ -36,7 +36,7 @@ This builds a pipeline for your project:
 * **`cljs`** Compiles `.cljs` files to JavaScript.
   * **`-u`** Adds `<script>` tags to `.html` files when optimizations is `none`.
   * **`-s`** Create source maps for compiled JavaScript files.
-  * **`-O none`** Use optimiztions `none` (no GClosure compiler pass).
+  * **`-O none`** Use optimizations `none` (no [GClosure][gclosure] compiler pass).
 
 * **`reload`** Starts live-reload websocket server and connects browser client
   to it. Resources (stylesheets, images, html, JavaScript) in the page are
@@ -65,3 +65,4 @@ your option) any later version.
 [boot-cljs]:        https://github.com/adzerk/boot-cljs
 [boot-cljs-repl]:   https://github.com/adzerk/boot-cljs-repl
 [boot-reload]:      https://github.com/adzerk/boot-reload
+[gclosure]:         https://developers.google.com/closure/compiler/
