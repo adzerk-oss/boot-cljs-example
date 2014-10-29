@@ -39,7 +39,7 @@ This builds a pipeline for your project:
   * **`-O none`** Use optimizations `none` (no [GClosure][gclosure] compiler pass).
 
 * **`reload`** Starts live-reload websocket server and connects browser client
-  to it. Resources (stylesheets, images, html, JavaScript) in the page are
+  to it. Resources (stylesheets, images, HTML, JavaScript) in the page are
   reloaded when they change.
 
 ## Start Browser REPL
@@ -51,7 +51,7 @@ server and do:
 boot.user=> (start-repl)
 ```
 
-The page will automatically reload and connect to the CLJS repl websocket.
+The page will automatically reload and connect to the CLJS REPL websocket.
 
 ## License
 
