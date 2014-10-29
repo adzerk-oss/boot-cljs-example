@@ -3,6 +3,17 @@
 Example project using [the boot build tool][boot] with the [boot-cljs],
 [boot-cljs-repl], and [boot-reload] tasks.
 
+## Prepare
+
+Download the [boot] binary for your system. Then, in a terminal:
+
+```bash
+boot -u
+```
+
+This will update [boot] to the latest stable release version. Since boot is
+alpha software at the moment, you should do this frequently.
+
 ## Build
 
 In a terminal do:
