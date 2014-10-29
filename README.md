@@ -12,7 +12,7 @@ boot -u
 ```
 
 This will update boot to the latest stable release version. Since boot is
-alpha software at the moment, you should do this frequently.
+pre-alpha software at the moment, you should do this frequently.
 
 ## Build
 
