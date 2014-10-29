@@ -3,9 +3,44 @@
 Example project using [the boot build tool][boot] with the [boot-cljs],
 [boot-cljs-repl], and [boot-reload] tasks.
 
-## Usage
+## Build
 
-FIXME
+In a terminal do:
+
+```bash
+boot watch speak cljs-repl cljs -usO none reload
+```
+
+This builds a pipeline for your project:
+
+* **`watch`** Starts incremental build loop. Project will be rebuilt when source
+  files change.
+
+* **`speak`** Audible notification (plays a sound file) for each build iteration,
+  notifying of errors or warnings when appropriate.
+
+* **`cljs-repl`** Task to handle starting a CLJS REPL and auto-connecting to the
+  browser client.
+
+* **`cljs`** Compiles `.cljs` files to JavaScript.
+  * **`-u`** Adds `<script>` tags to `.html` files when optimizations is `none`.
+  * **`-s`** Create source maps for compiled JavaScript files.
+  * **`-O none`** Use optimiztions `none` (no GClosure compiler pass).
+
+* **`reload`** Starts live-reload websocket server and connects browser client
+  to it. Resources (stylesheets, images, html, JavaScript) in the page are
+  reloaded when they change.
+
+## Start Browser REPL
+
+With the build pipeline humming in the background, connect to the running REPL
+server and do:
+
+```clj
+boot.user=> (start-repl)
+```
+
+The page will automatically reload and connect to the CLJS repl websocket.
 
 ## License
 
