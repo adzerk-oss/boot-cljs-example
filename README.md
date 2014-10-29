@@ -11,7 +11,7 @@ Download the boot binary for your system. Then, in a terminal:
 boot -u
 ```
 
-This will update [boot] to the latest stable release version. Since boot is
+This will update boot to the latest stable release version. Since boot is
 alpha software at the moment, you should do this frequently.
 
 ## Build
