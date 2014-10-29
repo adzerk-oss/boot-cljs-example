@@ -60,7 +60,7 @@ Copyright © 2014 Alan Dipert and Micha Niskin
 Distributed under the Eclipse Public License either version 1.0 or (at
 your option) any later version.
 
-[boot]:             https://github.com/tailrecursion/boot
+[boot]:             https://github.com/boot-clj/boot
 [cider]:            https://github.com/clojure-emacs/cider
 [boot-cljs]:        https://github.com/adzerk/boot-cljs
 [boot-cljs-repl]:   https://github.com/adzerk/boot-cljs-repl
