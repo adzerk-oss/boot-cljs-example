@@ -55,7 +55,7 @@ The page will automatically reload and connect to the CLJS repl websocket.
 
 ## License
 
-Copyright © 2014 Alan Dipert and Micha Niskin
+Copyright © 2014 Adzerk
 
 Distributed under the Eclipse Public License either version 1.0 or (at
 your option) any later version.
