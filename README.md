@@ -30,8 +30,8 @@ This builds a pipeline for your project:
 * **`speak`** Audible notification (plays a sound file) for each build iteration,
   notifying of errors or warnings when appropriate.
 
-* **`cljs-repl`** Starts a CLJ REPL and websocket server. The browser client will
-  connect to it when the CLJS REPL is started (see below).
+* **`cljs-repl`** Starts REPL and websocket servers. The browser client will 
+  connect to the websocket when the CLJS REPL is started (see below).
 
 * **`cljs`** Compiles ClojureScript namespaces to JavaScript.
   * **`-u`** Add `<script>` tags to HTML files when optimizations is `none`.
