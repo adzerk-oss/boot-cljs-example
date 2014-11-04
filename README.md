@@ -42,6 +42,8 @@ This builds a pipeline for your project:
   to it. Resources (stylesheets, images, HTML, JavaScript) in the page are
   reloaded when they change.
 
+You can view the generated content by opening `target/index.html` in your browser.
+
 ## Start Browser REPL
 
 With the build pipeline humming in the background, you can connect to the running nREPL
