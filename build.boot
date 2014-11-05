@@ -14,20 +14,23 @@
  '[boot.core             :as core])
 
 (deftask serve
-  "Start a web server on 127.0.0.1 and serve a directory.
+  "Start a web server on localhost and serve a directory.
 
    If no directory is specified the current one is used.  Listens on
    port 3000 by default."
   [d dir  PATH str "The directory to serve."
    p port PORT int "The port to listen on."]
-  (let [worker (future (pod/make-pod {:dependencies '[[lein-simpleton "1.3.0"]]}))
-        dir    (or dir  ".")
+  (let [worker (pod/make-pod {:dependencies '[[ring/ring-jetty-adapter "1.3.1"]
+                                              [compojure "1.2.1"]]})
+        dir    (or dir ".")
         port   (or port 3000)]
     (core/cleanup
-     (util/info "Stopping HTTP server...")
-     (pod/eval-in @worker (.stop server 0)))
+     (util/info "<< stopping Jetty... >>")
+     (pod/eval-in worker (.stop server)))
     (with-pre-wrap
-      (pod/eval-in @worker
-                   (require '[leiningen.simpleton :as ls])
-                   (def server (ls/new-server ~port "/" (ls/fs-handler ~dir))))
-      (util/info "<< started web server on http://127.0.0.1:%d (serving: %s) >>\n" port dir))))
+      (pod/eval-in worker
+        (require '[ring.adapter.jetty :refer [run-jetty]]
+                 '[compojure.handler  :refer [site]]
+                 '[compojure.route    :refer [files]])
+        (def server (run-jetty (files "/" {:root ~dir}) {:port ~port :join? false})))
+      (util/info "<< started web server on http://localhost:%d (serving: %s) >>\n" port dir))))
