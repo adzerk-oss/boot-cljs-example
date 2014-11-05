@@ -48,7 +48,9 @@ This builds a pipeline for your project:
   to it. Resources (stylesheets, images, HTML, JavaScript) in the page are
   reloaded when they change.
 
-You can view the generated content by opening [http://localhost:3000/](http://localhost:3000/) in your browser.
+You can view the generated content by opening
+[http://localhost:3000/index.html](http://localhost:3000/index.html)
+in your browser.
 
 ## Start Browser REPL
 
