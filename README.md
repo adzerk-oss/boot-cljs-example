@@ -19,10 +19,16 @@ pre-alpha software at the moment, you should do this frequently.
 In a terminal do:
 
 ```bash
-boot watch speak cljs-repl cljs -usO none reload
+boot serve -d target/ watch speak cljs-repl cljs -usO none reload
 ```
 
 This builds a pipeline for your project:
+
+* **`serve`** Starts a local web server.  This task is not from a
+  library - it is defined in `build.boot` and uses
+  [lein-simpleton](https://github.com/tailrecursion/lein-simpleton)
+  underneath.
+  * **`-d`** Use `target/` as the document root
 
 * **`watch`** Starts incremental build loop. Project will be rebuilt when source
   files change.
@@ -42,7 +48,7 @@ This builds a pipeline for your project:
   to it. Resources (stylesheets, images, HTML, JavaScript) in the page are
   reloaded when they change.
 
-You can view the generated content by opening `target/index.html` in your browser.
+You can view the generated content by opening [http://localhost:3000/](http://localhost:3000/) in your browser.
 
 ## Start Browser REPL
 
