@@ -36,7 +36,7 @@ This builds a pipeline for your project:
 * **`speak`** Audible notification (plays a sound file) for each build iteration,
   notifying of errors or warnings when appropriate.
 
-* **`cljs-repl`** Starts REPL and websocket servers. The browser client will 
+* **`cljs-repl`** Starts REPL and websocket servers. The browser client will
   connect to the websocket when the CLJS REPL is started (see below).
 
 * **`cljs`** Compiles ClojureScript namespaces to JavaScript.
@@ -49,8 +49,27 @@ This builds a pipeline for your project:
   reloaded when they change.
 
 You can view the generated content by opening
-[http://localhost:3000/index.html](http://localhost:3000/index.html)
+[http://localhost:3000/](http://localhost:3000/)
 in your browser.
+
+> *OutOfMemoryError Troubleshooting*
+>
+> boot provides a tool called _pods_ that make it possible for multiple
+> independent Clojure classpaths to exist in the same JVM.  Task authors
+> can use Maven dependencies without worrying about
+> shadowing or otherwise interfering with the dependencies in other pods.
+>
+> One downside of pods is that their use results in higher-than-usual
+> memory consumption by the JVM, particularly
+> [PermGen](http://stackoverflow.com/questions/88235/dealing-with-java-lang-outofmemoryerror-permgen-space-error).
+>
+> If you are using Java 7, you may see errors related to PermGen.  You
+> can consult the
+> [JVM Options](https://github.com/boot-clj/boot/wiki/JVM-Options) wiki
+> page for settings that can help.
+>
+> You may also consider upgrading to Java 8, as it
+> [resolves many PermGen-related issues](http://www.infoq.com/news/2013/03/java-8-permgen-metaspace).
 
 ## Start Browser REPL
 
