@@ -25,9 +25,7 @@ boot serve -d target/ watch speak cljs-repl cljs -usO none reload
 This builds a pipeline for your project:
 
 * **`serve`** Starts a local web server.  This task is not from a
-  library - it is defined in `build.boot` and uses
-  [lein-simpleton](https://github.com/tailrecursion/lein-simpleton)
-  underneath.
+  library - it is defined in `build.boot`.
   * **`-d`** Use `target/` as the document root
 
 * **`watch`** Starts incremental build loop. Project will be rebuilt when source
@@ -49,7 +47,7 @@ This builds a pipeline for your project:
   reloaded when they change.
 
 You can view the generated content by opening
-[http://localhost:3000/](http://localhost:3000/)
+[http://localhost:3000/index.html](http://localhost:3000/index.html)
 in your browser.
 
 > *OutOfMemoryError Troubleshooting*
