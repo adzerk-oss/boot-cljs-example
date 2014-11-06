@@ -1,7 +1,7 @@
 (set-env!
  :src-paths    #{"src"}
  :rsc-paths    #{"html"}
- :dependencies '[[adzerk/boot-cljs      "0.0-2371-21" :scope "test"]
+ :dependencies '[[adzerk/boot-cljs      "0.0-2371-22" :scope "test"]
                  [adzerk/boot-cljs-repl "0.1.5"       :scope "test"]
                  [adzerk/boot-reload    "0.1.3"       :scope "test"]])
 
