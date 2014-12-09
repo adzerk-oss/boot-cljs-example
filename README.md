@@ -24,8 +24,8 @@ boot serve -d target/ watch speak cljs-repl cljs -usO none reload
 
 This builds a pipeline for your project:
 
-* **`serve`** Starts a local web server.  This task is not from a
-  library - it is defined in `build.boot`.
+* **`serve`** Starts a local web server.  This task comes from the
+  [pandeiro/boot-http](https://github.com/pandeiro/boot-http) library.
   * **`-d`** Use `target/` as the document root
 
 * **`watch`** Starts incremental build loop. Project will be rebuilt when source
