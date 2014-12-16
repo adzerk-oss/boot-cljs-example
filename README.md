@@ -19,7 +19,7 @@ pre-alpha software at the moment, you should do this frequently.
 In a terminal do:
 
 ```bash
-boot serve -d target/ watch speak reload cljs-repl cljs -sO none
+boot serve -d target/ watch speak reload cljs-repl cljs -usO none
 ```
 
 This builds a pipeline for your project:
@@ -39,6 +39,7 @@ This builds a pipeline for your project:
   reloaded when they change.
 
 * **`cljs`** Compiles ClojureScript namespaces to JavaScript.
+  * **`-u`** Operate in "unified mode" - automate script inclusion
   * **`-s`** Create source maps for compiled JavaScript files.
   * **`-O none`** Use optimizations `none` (no [GClosure][gclosure] compiler pass).
 
@@ -80,7 +81,7 @@ Then, you can start a CLJS REPL:
 boot.user=> (start-repl)
 ```
 
-The page will automatically reload and connect to the CLJS REPL websocket.
+Reload the page in your browser.  Your REPL is now connected to the page.
 
 ## License
 
