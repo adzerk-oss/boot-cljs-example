@@ -1,14 +1,19 @@
 (ns app
-  (:require [goog.net.XhrIo :as xhr]))
+  (:require [goog.net.XhrIo :as xhr]
+            [reagent.core :as r]))
 
-(defonce c (.. js/document (createElement "DIV")))
+(defn structure []
+  [:div.container
+   [:h1 "Hello"]
+   [:p "This is the app"]])
 
-(aset c "innerHTML" "<p>i'm dynamically created!</p>")
-(.. js/document (getElementById "container") (appendChild c))
-
-(.log js/console "ok?")
+(def root (.. js/document (getElementById "root")))
 
 (defn connect []
-  (xhr/send "http://localhost:9999" (fn [resp] (.log js/console "response" resp))))
+  (xhr/send "http://localhost:9999"
+            (fn [resp] (.log js/console "response" resp))))
 
-(.log js/console "some")
+(defn init []
+  (r/render [structure] root))
+
+(.. js/window (addEventListener "DOMContentLoaded" init))
