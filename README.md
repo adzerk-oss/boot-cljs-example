@@ -19,7 +19,7 @@ pre-release software at the moment, you should do this frequently.
 In a terminal do:
 
 ```bash
-boot serve -d target/ watch speak reload cljs-repl cljs -usO none
+boot serve -d target/ watch speak reload cljs-repl cljs -sO none
 ```
 
 This builds a pipeline for your project:
