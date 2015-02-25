@@ -39,7 +39,6 @@ This builds a pipeline for your project:
   reloaded when they change.
 
 * **`cljs`** Compiles ClojureScript namespaces to JavaScript.
-  * **`-u`** Operate in "unified mode" - automate script inclusion
   * **`-s`** Create source maps for compiled JavaScript files.
   * **`-O none`** Use optimizations `none` (no [GClosure][gclosure] compiler pass).
 
