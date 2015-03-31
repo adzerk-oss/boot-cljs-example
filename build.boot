@@ -16,6 +16,7 @@
  '[pandeiro.http         :refer [serve]])
 
 (deftask dev []
+  (set-env! :source-paths #{"src" "test"})
   (comp (serve :dir "target/")
         (watch)
         (speak)
@@ -26,4 +27,5 @@
         (run-cljs-test)))
 
 (deftask build []
+  (set-env! :source-paths #{"src"})
   (comp (cljs :optimizations :advanced)))
