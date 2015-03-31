@@ -89,8 +89,8 @@ Copyright © 2014 Adzerk
 Distributed under the Eclipse Public License either version 1.0 or (at
 your option) any later version.
 
-[badge]:            https://travis-ci.org/adzerk/boot-cljs-example.png?branch=master
-[build]:            https://travis-ci.org/adzerk/boot-cljs-example
+[badge]:            https://travis-ci.org/adzerk-oss/boot-cljs-example.png?branch=master
+[build]:            https://travis-ci.org/adzerk-oss/boot-cljs-example
 [boot]:             https://github.com/boot-clj/boot
 [cider]:            https://github.com/clojure-emacs/cider
 [boot-cljs]:        https://github.com/adzerk/boot-cljs
