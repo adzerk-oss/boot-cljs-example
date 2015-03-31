@@ -11,6 +11,7 @@
 (require
  '[adzerk.boot-cljs      :refer [cljs]]
  '[adzerk.boot-cljs-repl :refer [cljs-repl start-repl]]
+ '[boot-cljs-test.node-runner :refer :all]
  '[adzerk.boot-reload    :refer [reload]]
  '[pandeiro.http         :refer [serve]])
 
@@ -20,7 +21,9 @@
         (speak)
         (reload)
         (cljs-repl)
-        (cljs :source-map true :optimizations :none)))
+        (cljs-test-node-runner :namespaces '[app.test])
+        (cljs :source-map true :optimizations :none)
+        (run-cljs-test)))
 
 (deftask build []
   (comp (cljs :optimizations :advanced)))
