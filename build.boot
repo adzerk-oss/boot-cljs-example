@@ -20,7 +20,7 @@
   (comp (serve :dir "target/")
         (watch)
         (speak)
-        (reload)
+        (reload :on-jsload 'app.core/main)
         (cljs-repl)
         (cljs-test-node-runner :namespaces '[app.test])
         (cljs :source-map true :optimizations :none)
