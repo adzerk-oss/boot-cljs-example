@@ -11,11 +11,11 @@
                  [pandeiro/boot-http "0.6.3-SNAPSHOT"          :scope "test"]])
 
 (require
- '[adzerk.boot-cljs      :refer [cljs]]
- '[adzerk.boot-cljs-repl :refer [cljs-repl start-repl]]
+ '[adzerk.boot-cljs           :refer [cljs]]
+ '[adzerk.boot-cljs-repl      :refer [cljs-repl start-repl]]
  '[boot-cljs-test.node-runner :refer :all]
- '[adzerk.boot-reload    :refer [reload]]
- '[pandeiro.http         :refer [serve]])
+ '[adzerk.boot-reload         :refer [reload]]
+ '[pandeiro.boot-http         :refer [serve]])
 
 (deftask dev []
   (set-env! :source-paths #{"src" "test"})
