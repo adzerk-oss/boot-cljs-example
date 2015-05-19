@@ -24,9 +24,10 @@
         (speak)
         (reload :on-jsload 'app.core/main)
         (cljs-repl)
-        (cljs-test-node-runner :namespaces '[app.test])
+        ;; (cljs-test-node-runner :namespaces '[app.test])
         (cljs :source-map true :optimizations :none)
-        (run-cljs-test)))
+        ;; (run-cljs-test)
+        ))
 
 (deftask build []
   (set-env! :source-paths #{"src"})
