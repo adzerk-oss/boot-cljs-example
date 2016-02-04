@@ -1,6 +1,5 @@
 (set-env!
- :source-paths   #{"src"}
- :resource-paths #{"html"}
+ :resource-paths #{"src" "html"}
  :dependencies '[[adzerk/boot-cljs            "1.7.228-1"      :scope "test"]
                  [adzerk/boot-cljs-repl       "0.3.0"          :scope "test"]
                  [adzerk/boot-reload          "0.4.5"          :scope "test"]
@@ -20,13 +19,12 @@
   '[pandeiro.boot-http    :refer [serve]])
 
 (deftask auto-test []
-  (set-env! :source-paths #{"src" "test"})
+  (merge-env! :resource-paths #{"test"})
   (comp (watch)
         (speak)
         (test-cljs)))
 
 (deftask dev []
-  (set-env! :source-paths #{"src"})
   (comp (serve :dir "target/")
         (watch)
         (speak)
@@ -35,5 +33,4 @@
         (cljs :source-map true :optimizations :none)))
 
 (deftask build []
-  (set-env! :source-paths #{"src"})
-  (comp (cljs :optimizations :advanced)))
+  (cljs :optimizations :advanced))
