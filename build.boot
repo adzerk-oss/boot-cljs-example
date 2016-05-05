@@ -15,12 +15,16 @@
   '[adzerk.boot-cljs      :refer [cljs]]
   '[adzerk.boot-cljs-repl :refer [cljs-repl start-repl]]
   '[adzerk.boot-reload    :refer [reload]]
-  '[crisptrutski.boot-cljs-test  :refer [test-cljs]]
+  '[crisptrutski.boot-cljs-test  :refer [exit! test-cljs]]
   '[pandeiro.boot-http    :refer [serve]])
 
-(deftask auto-test []
+(deftask testing []
   (merge-env! :resource-paths #{"test"})
-  (comp (watch)
+  identity)
+
+(deftask auto-test []
+  (comp (testing)
+        (watch)
         (speak)
         (test-cljs)))
 
@@ -31,6 +35,11 @@
         (reload :on-jsload 'app.core/main)
         (cljs-repl)
         (cljs :source-map true :optimizations :none)))
+
+(deftask test []
+  (comp (testing)
+        (test-cljs)
+        (exit!)))
 
 (deftask build []
   (cljs :optimizations :advanced))
