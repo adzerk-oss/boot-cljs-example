@@ -12,24 +12,59 @@
                  [org.clojure/tools.nrepl     "0.2.12"         :scope "test"]])
 
 (require
-  '[adzerk.boot-cljs      :refer [cljs]]
+  '[clojure.java.io       :as io]
+  '[boot.util             :refer [info]]
+  '[adzerk.boot-cljs      :refer [cljs main-files]]
   '[adzerk.boot-cljs-repl :refer [cljs-repl start-repl]]
   '[adzerk.boot-reload    :refer [reload]]
   '[crisptrutski.boot-cljs-test  :refer [exit! test-cljs]]
   '[pandeiro.boot-http    :refer [serve]])
 
-(deftask testing []
-  (merge-env! :resource-paths #{"test"})
-  identity)
+(def test-suffix "-test")
+
+(defn inject-test-ns
+  [reqs]
+  (loop [original reqs
+         injected reqs]
+    (if (empty? original)
+      injected
+      (recur (rest original)
+             (let [ns (first original)
+                   test-ns (str ns test-suffix)]
+               (if (contains? reqs test-ns)
+                 injected
+                 (conj injected (symbol test-ns))))))))
+
+(defn add-test-ns-to-spec
+  [new-fs-dir spec-edn]
+  (let [in-file (tmp-file spec-edn)
+        out-file (io/file new-fs-dir (tmp-path spec-edn))
+        spec (read-string (slurp in-file))
+        decorated (update-in spec [:require] inject-test-ns)]
+    (info "Injecting test namespaces into %s: %s\n"
+          (.getName in-file)
+          (:require decorated))
+    (spit out-file (pr-str decorated))))
+
+(deftask testing
+  [i ids IDS #{str} ""]
+  (with-pre-wrap fileset
+    (merge-env! :source-paths #{"test"})
+    (if-let [build-spec-edns (seq (main-files fileset ids))]
+      (let [tmp-dir (tmp-dir!)]
+        (doall (map #(add-test-ns-to-spec tmp-dir %) build-spec-edns))
+        (commit! (add-resource fileset tmp-dir)))
+      fileset)))
 
 (deftask auto-test []
-  (comp (testing)
+  (comp (testing :ids #{"main"})
         (watch)
         (speak)
         (test-cljs)))
 
 (deftask dev []
-  (comp (serve :dir "target/")
+  (comp (testing :ids #{"main"})
+        (serve)
         (watch)
         (speak)
         (reload :on-jsload 'app.core/main)
