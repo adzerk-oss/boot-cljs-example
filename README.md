@@ -67,11 +67,14 @@ in your browser.
 
 ## Start Browser REPL
 
-With the build pipeline humming in the background, you can connect to the running nREPL
-server with either your IDE or at the command line in a new terminal:
+With the build pipeline humming in the background, you can connect to
+the running nREPL server with either your IDE or at the command line
+in a new terminal. The pipeline process should report the nREPL host
+and port, e.g. `nREPL server started on port 62765 on host 127.0.0.1 -
+nrepl://127.0.0.1:62765`. Note the port, and type:
 
 ```bash
-boot repl --client
+boot repl --client --port <port from pipeline process>
 ```
 
 Then, you can start a CLJS REPL:
